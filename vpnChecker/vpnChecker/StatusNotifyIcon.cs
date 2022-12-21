@@ -39,6 +39,15 @@ internal class StatusNotifyIcon : IDisposable
     }
 
     /// <summary>
+    /// Text
+    /// </summary>
+    public string Text
+    {
+        get { return _notifyIcon.Text; }
+        set { _notifyIcon.Text = value; }
+    }
+
+    /// <summary>
     /// クリック時のイベント
     /// </summary>
     public event EventHandler Click

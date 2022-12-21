@@ -26,10 +26,12 @@ namespace vpnChecker
                 if (checkVpnConnection())
                 {
                     notifyIcon.SetIcon(o_path);
+                    notifyIcon.Text = "VPN 接続中";
                 }
                 else
                 {
                     notifyIcon.SetIcon(x_path);
+                    notifyIcon.Text = "VPN 未接続";
                 }
             };
 
