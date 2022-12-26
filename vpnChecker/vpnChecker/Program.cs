@@ -20,16 +20,26 @@ namespace vpnChecker
 
             SetToolStripMenuItems(notifyIcon);
 
-            var timer = new System.Timers.Timer(1000);
+            var vpnConnection = false;
+
+            var timer = new System.Timers.Timer(3000);
             timer.Elapsed += (sender, e) =>
             {
                 if (checkVpnConnection())
                 {
-                    notifyIcon.SetIcon(o_path);
-                    notifyIcon.Text = "VPN 接続中";
+                    if (!vpnConnection)
+                    {
+                        vpnConnection = true;
+                        notifyIcon.SetIcon(o_path);
+                        notifyIcon.Text = "VPN 接続中";
+                    }
+
+                    return;
                 }
-                else
+
+                if (vpnConnection)
                 {
+                    vpnConnection = false;
                     notifyIcon.SetIcon(x_path);
                     notifyIcon.Text = "VPN 未接続";
                 }

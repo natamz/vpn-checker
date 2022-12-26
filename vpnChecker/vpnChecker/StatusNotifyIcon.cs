@@ -12,7 +12,6 @@ internal class StatusNotifyIcon : IDisposable
         SetIcon(iconFilePath);
 
         _notifyIcon.Visible = true;
-        _notifyIcon.Text = "";
     }
 
     /// <summary>
